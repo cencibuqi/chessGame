@@ -8,6 +8,14 @@ const App = () => {
 
     const [values, setValues] = React.useState(Array(9).fill(""));
     const [isXNext, setXNext] = React.useState(true);
+    const winner = calculateWinner(values);
+    let status = "";
+    if(winner){
+        status = `Winner: ${winner}`;
+    }else {
+        status = `Next player: ${isXNext ? "X" : "O"}`;
+    }
+
 
     const clickHandler = (e, posX, posY) => {
         if(values[3 * posX + posY] || calculateWinner(values)) return;
@@ -24,9 +32,14 @@ const App = () => {
 
     return (
         <div className="app">
-            <BoardRow positionX={0} value={values.slice(0, 3)} onSquareClick={clickHandler} />
-            <BoardRow positionX={1} value={values.slice(3, 6)} onSquareClick={clickHandler} />
-            <BoardRow positionX={2} value={values.slice(6)} onSquareClick={clickHandler} />
+            <div className={"status"}>
+                <label>{status}</label>
+            </div>
+            <div className="borderRow">
+                <BoardRow positionX={0} value={values.slice(0, 3)} onSquareClick={clickHandler} />
+                <BoardRow positionX={1} value={values.slice(3, 6)} onSquareClick={clickHandler} />
+                <BoardRow positionX={2} value={values.slice(6)} onSquareClick={clickHandler} />
+            </div>
         </div>
     );
 };

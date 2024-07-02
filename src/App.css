@@ -1,6 +1,15 @@
 .app{
     width: 300px;
     margin: 50px auto;
+}
+
+.app .status{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.app .borderRow{
     display: grid;
     grid-template-rows: 100px 100px 100px;
 }
