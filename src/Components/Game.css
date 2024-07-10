@@ -1,0 +1,10 @@
+.game{
+    width: 100%;
+    height: 300px;
+    display: flex;
+}
+
+.game-board .borderRow{
+    display: grid;
+    grid-template-rows: 100px 100px 100px;
+}
